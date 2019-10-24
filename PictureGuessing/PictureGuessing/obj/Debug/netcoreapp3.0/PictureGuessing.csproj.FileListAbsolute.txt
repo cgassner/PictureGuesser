@@ -1,0 +1,10 @@
+C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\bin\Debug\netcoreapp3.0\appsettings.Development.json
+C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\bin\Debug\netcoreapp3.0\appsettings.json
+C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\bin\Debug\netcoreapp3.0\Properties\launchSettings.json
+C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\bin\Debug\netcoreapp3.0\PictureGuessing.exe
+C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\obj\Debug\netcoreapp3.0\PictureGuessing.csprojAssemblyReference.cache
+C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\obj\Debug\netcoreapp3.0\staticwebassets\PictureGuessing.StaticWebAssets.Manifest.cache
+C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\obj\Debug\netcoreapp3.0\staticwebassets\PictureGuessing.StaticWebAssets.xml
+C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\obj\Debug\netcoreapp3.0\PictureGuessing.AssemblyInfoInputs.cache
+C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\obj\Debug\netcoreapp3.0\PictureGuessing.AssemblyInfo.cs
+C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\obj\Debug\netcoreapp3.0\PictureGuessing.RazorTargetAssemblyInfo.cache
