@@ -2,21 +2,18 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.IO;
 using System.Linq;
-using System.Net.Mime;
-using System.Drawing;
 using System.Threading.Tasks;
 
 namespace PictureGuessing.Models
 {
-    public class Picture
+    public class Difficulty
     {
         [Key]
         public Guid Id { get; set; } = new Guid();
-        public string URL { get; set; }
-        public string Answer { get; set; }
-        public int AnswerLength => Answer.Length;
+        public float DifficultyScale { get; set; }
+        public int rows { get; set; }
+        public int cols { get; set; }
+        public float revealDelay { get; set; }
     }
-
 }
