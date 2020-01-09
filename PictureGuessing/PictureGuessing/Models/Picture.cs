@@ -12,11 +12,23 @@ namespace PictureGuessing.Models
 {
     public class Picture
     {
+
         [Key]
         public Guid Id { get; set; } = new Guid();
         public string URL { get; set; }
-        public string Answer { get; set; }
-        public int AnswerLength => Answer.Length;
+        private string answer;
+        public string Answer
+        {
+            get => answer;
+            set
+            {
+                if (value!="")
+                    AnswerLength = value.Length;
+                answer = value;
+            }
+        }
+
+        public int AnswerLength { get; set; }
     }
 
 }

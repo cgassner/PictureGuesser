@@ -14,6 +14,5 @@ namespace PictureGuessing.Models
         public Difficulty Difficulty { get; set; }
         public Guid pictureID { get; set; }
         public bool isFinished { get; set; } = false;
-
     }
 }

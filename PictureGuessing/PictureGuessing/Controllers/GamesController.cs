@@ -31,7 +31,7 @@ namespace PictureGuessing.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Game>> GetGame(Guid id)
         {
-            var game = await _context.Game.FindAsync(id);
+            var game = await _context.Game.Include(g => g.Difficulty).FirstOrDefaultAsync(i => i.Id == id);
 
             if (game == null)
             {
@@ -52,8 +52,11 @@ namespace PictureGuessing.Controllers
             if (game.isFinished)
                 return game;
 
-            if (guess.Trim() == _context.Pictures.FindAsync(game.pictureID).Result.Answer)
+            if (guess.Trim().ToLower() == _context.Pictures.FindAsync(game.pictureID).Result.Answer.ToLower())
                 game.isFinished = true;
+
+            _context.Game.Update(game);
+            await _context.SaveChangesAsync();
             return game;
         }
 
@@ -93,11 +96,28 @@ namespace PictureGuessing.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
-        public async Task<ActionResult<Game>> PostGame(Difficulty difficulty)
+        public async Task<ActionResult<Game>> PostGame(GameStartObject gameStartObject)
         {
-            Game game = new Game();
-            game.Difficulty = difficulty;
-            game.pictureID = _context.Pictures.OrderBy(o => Guid.NewGuid()).First().Id;
+            #region Get Difficulty with best matching difficultScale
+            List<Difficulty> difficulties = _context.Difficulties.ToListAsync().Result;
+            Difficulty bestMatchDifficulty = difficulties[0];
+            float bestMatchDelta = Math.Abs(gameStartObject.difficultyScale-bestMatchDifficulty.DifficultyScale);
+            for (int i = 1; i < difficulties.Count; i++)
+            {
+                float curDelta = Math.Abs(difficulties[i].DifficultyScale - gameStartObject.difficultyScale);
+                if (curDelta < bestMatchDelta)
+                {
+                    bestMatchDifficulty = difficulties[i];
+                    bestMatchDelta = curDelta;
+                }
+            }
+            #endregion
+
+            Game game = new Game
+            {
+                Difficulty = bestMatchDifficulty,
+                pictureID = _context.Pictures.OrderBy(o => Guid.NewGuid()).First().Id
+            };
             _context.Game.Add(game);
             await _context.SaveChangesAsync();
             return CreatedAtAction(nameof(GetGame), new { id = game.Id }, game);

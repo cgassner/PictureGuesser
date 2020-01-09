@@ -27,7 +27,9 @@ namespace PictureGuessing
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<PictureGuessingDbContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("SQLLocalTest")));
+            //services.AddDbContext<PictureGuessingDbContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("SQLLocalTest")));
+            services.AddDbContext<PictureGuessingDbContext>(opt => opt.UseMySQL("server=localhost:3306;database=pictureguessing"));
+            
             services.AddControllers();
             
         }

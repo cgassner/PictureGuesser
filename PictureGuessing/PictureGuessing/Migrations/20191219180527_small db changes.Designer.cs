@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PictureGuessing.Models;
 
 namespace PictureGuessing.Migrations
 {
     [DbContext(typeof(PictureGuessingDbContext))]
-    partial class PictureGuessingDbContextModelSnapshot : ModelSnapshot
+    [Migration("20191219180527_small db changes")]
+    partial class smalldbchanges
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,6 +23,10 @@ namespace PictureGuessing.Migrations
 
             modelBuilder.Entity("PictureGuessing.Models.Difficulty", b =>
                 {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<float>("DifficultyScale")
                         .HasColumnType("real");
 
@@ -33,7 +39,7 @@ namespace PictureGuessing.Migrations
                     b.Property<int>("rows")
                         .HasColumnType("int");
 
-                    b.HasKey("DifficultyScale");
+                    b.HasKey("Id");
 
                     b.ToTable("Difficulties");
                 });
@@ -44,8 +50,8 @@ namespace PictureGuessing.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<float?>("DifficultyScale")
-                        .HasColumnType("real");
+                    b.Property<Guid>("difficultyID")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<bool>("isFinished")
                         .HasColumnType("bit");
@@ -54,8 +60,6 @@ namespace PictureGuessing.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("DifficultyScale");
 
                     b.ToTable("Game");
                 });
@@ -78,13 +82,6 @@ namespace PictureGuessing.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Pictures");
-                });
-
-            modelBuilder.Entity("PictureGuessing.Models.Game", b =>
-                {
-                    b.HasOne("PictureGuessing.Models.Difficulty", "Difficulty")
-                        .WithMany()
-                        .HasForeignKey("DifficultyScale");
                 });
 #pragma warning restore 612, 618
         }

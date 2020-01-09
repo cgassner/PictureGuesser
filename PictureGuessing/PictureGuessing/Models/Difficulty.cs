@@ -10,7 +10,6 @@ namespace PictureGuessing.Models
     public class Difficulty
     {
         [Key]
-        public Guid Id { get; set; } = new Guid();
         public float DifficultyScale { get; set; }
         public int rows { get; set; }
         public int cols { get; set; }
