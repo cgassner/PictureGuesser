@@ -130,12 +130,7 @@ C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\bin\Debug\ne
 C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\bin\Debug\netcoreapp3.0\System.ComponentModel.Annotations.dll
 C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\bin\Debug\netcoreapp3.0\System.Diagnostics.DiagnosticSource.dll
 C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\bin\Debug\netcoreapp3.0\System.Runtime.CompilerServices.Unsafe.dll
-C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\bin\Debug\netcoreapp3.0\BouncyCastle.Crypto.dll
-C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\bin\Debug\netcoreapp3.0\Google.Protobuf.dll
-C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\bin\Debug\netcoreapp3.0\MySql.Data.dll
-C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\bin\Debug\netcoreapp3.0\MySql.Data.EntityFrameworkCore.dll
-C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\bin\Debug\netcoreapp3.0\Renci.SshNet.dll
-C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\bin\Debug\netcoreapp3.0\SshNet.Security.Cryptography.dll
-C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\bin\Debug\netcoreapp3.0\System.Resources.Extensions.dll
-C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\bin\Debug\netcoreapp3.0\System.Xml.XPath.XmlDocument.dll
+C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\bin\Debug\netcoreapp3.0\MySqlConnector.dll
+C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\bin\Debug\netcoreapp3.0\Pomelo.EntityFrameworkCore.MySql.dll
+C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\bin\Debug\netcoreapp3.0\Pomelo.JsonObject.dll
 C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\obj\Debug\netcoreapp3.0\PictureGuessing.MvcApplicationPartsAssemblyInfo.cache

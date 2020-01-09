@@ -7,8 +7,18 @@
   <ItemGroup>
     <Compile Remove="Migrations\20191128204834_InitialMigration.cs" />
     <Compile Remove="Migrations\20191128204834_InitialMigration.Designer.cs" />
+    <Compile Remove="Migrations\20191128204911_InitialMigration.cs" />
+    <Compile Remove="Migrations\20191128204911_InitialMigration.Designer.cs" />
     <Compile Remove="Migrations\20191212132718_NewPictures.cs" />
     <Compile Remove="Migrations\20191212132718_NewPictures.Designer.cs" />
+    <Compile Remove="Migrations\20191212133430_NewPictures.cs" />
+    <Compile Remove="Migrations\20191212133430_NewPictures.Designer.cs" />
+    <Compile Remove="Migrations\20191216190214_IsFinishedAttribute.cs" />
+    <Compile Remove="Migrations\20191216190214_IsFinishedAttribute.Designer.cs" />
+    <Compile Remove="Migrations\20191219180527_small db changes.cs" />
+    <Compile Remove="Migrations\20191219180527_small db changes.Designer.cs" />
+    <Compile Remove="Migrations\20191219193520_DifficultyScale to Key.cs" />
+    <Compile Remove="Migrations\20191219193520_DifficultyScale to Key.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -30,7 +40,7 @@
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.0.0" />
-    <PackageReference Include="MySql.Data.EntityFrameworkCore" Version="8.0.18" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="3.1.0" />
   </ItemGroup>
 
 </Project>

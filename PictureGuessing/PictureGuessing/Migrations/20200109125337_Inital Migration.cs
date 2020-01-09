@@ -3,15 +3,14 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace PictureGuessing.Migrations
 {
-    public partial class InitialMigration : Migration
+    public partial class InitalMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Difficulty",
+                name: "Difficulties",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(nullable: false),
                     DifficultyScale = table.Column<float>(nullable: false),
                     rows = table.Column<int>(nullable: false),
                     cols = table.Column<int>(nullable: false),
@@ -19,20 +18,21 @@ namespace PictureGuessing.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Difficulty", x => x.Id);
+                    table.PrimaryKey("PK_Difficulties", x => x.DifficultyScale);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Picture",
+                name: "Pictures",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    Image = table.Column<byte[]>(nullable: true),
-                    Answer = table.Column<string>(nullable: true)
+                    URL = table.Column<string>(nullable: true),
+                    Answer = table.Column<string>(nullable: true),
+                    AnswerLength = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Picture", x => x.Id);
+                    table.PrimaryKey("PK_Pictures", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -40,35 +40,25 @@ namespace PictureGuessing.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    DifficultyId = table.Column<Guid>(nullable: true),
-                    PictureId = table.Column<Guid>(nullable: true)
+                    DifficultyScale = table.Column<float>(nullable: true),
+                    pictureID = table.Column<Guid>(nullable: false),
+                    isFinished = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Game", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Game_Difficulty_DifficultyId",
-                        column: x => x.DifficultyId,
-                        principalTable: "Difficulty",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Game_Picture_PictureId",
-                        column: x => x.PictureId,
-                        principalTable: "Picture",
-                        principalColumn: "Id",
+                        name: "FK_Game_Difficulties_DifficultyScale",
+                        column: x => x.DifficultyScale,
+                        principalTable: "Difficulties",
+                        principalColumn: "DifficultyScale",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Game_DifficultyId",
+                name: "IX_Game_DifficultyScale",
                 table: "Game",
-                column: "DifficultyId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Game_PictureId",
-                table: "Game",
-                column: "PictureId");
+                column: "DifficultyScale");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -77,10 +67,10 @@ namespace PictureGuessing.Migrations
                 name: "Game");
 
             migrationBuilder.DropTable(
-                name: "Difficulty");
+                name: "Pictures");
 
             migrationBuilder.DropTable(
-                name: "Picture");
+                name: "Difficulties");
         }
     }
 }
