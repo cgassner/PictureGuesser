@@ -1,0 +1,6 @@
+C:\Users\chris\repos\PictureGuesser\Testing\PictureGuessingTesting\PictureGuessingTesting\bin\Debug\PictureGuessingTesting.exe.config
+C:\Users\chris\repos\PictureGuesser\Testing\PictureGuessingTesting\PictureGuessingTesting\bin\Debug\PictureGuessingTesting.exe
+C:\Users\chris\repos\PictureGuesser\Testing\PictureGuessingTesting\PictureGuessingTesting\bin\Debug\PictureGuessingTesting.pdb
+C:\Users\chris\repos\PictureGuesser\Testing\PictureGuessingTesting\PictureGuessingTesting\obj\Debug\PictureGuessingTesting.csprojAssemblyReference.cache
+C:\Users\chris\repos\PictureGuesser\Testing\PictureGuessingTesting\PictureGuessingTesting\obj\Debug\PictureGuessingTesting.exe
+C:\Users\chris\repos\PictureGuesser\Testing\PictureGuessingTesting\PictureGuessingTesting\obj\Debug\PictureGuessingTesting.pdb
