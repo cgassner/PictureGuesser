@@ -28,7 +28,7 @@ namespace PictureGuessing
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<PictureGuessingDbContext>(opt =>
-                opt.UseMySql(Configuration.GetConnectionString("MariaDBlocalTest")));
+                opt.UseMySql(Configuration.GetConnectionString("MariaDB")));
             services.AddControllers();
             
         }

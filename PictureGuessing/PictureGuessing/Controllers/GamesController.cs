@@ -22,7 +22,6 @@ namespace PictureGuessing.Controllers
 
         // GET: api/Games
         [HttpGet]
-        [)]
         public async Task<ActionResult<IEnumerable<Game>>> GetGame()
         {
             return await _context.Game.ToListAsync();
