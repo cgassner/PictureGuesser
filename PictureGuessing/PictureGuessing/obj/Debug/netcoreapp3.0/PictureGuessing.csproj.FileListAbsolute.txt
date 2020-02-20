@@ -133,4 +133,9 @@ C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\bin\Debug\ne
 C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\bin\Debug\netcoreapp3.0\MySqlConnector.dll
 C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\bin\Debug\netcoreapp3.0\Pomelo.EntityFrameworkCore.MySql.dll
 C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\bin\Debug\netcoreapp3.0\Pomelo.JsonObject.dll
+C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\bin\Debug\netcoreapp3.0\Microsoft.OpenApi.dll
+C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\bin\Debug\netcoreapp3.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\bin\Debug\netcoreapp3.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\bin\Debug\netcoreapp3.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\obj\Debug\netcoreapp3.0\PictureGuessing.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\obj\Debug\netcoreapp3.0\PictureGuessing.MvcApplicationPartsAssemblyInfo.cache

@@ -134,3 +134,8 @@ C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\obj\Release\
 C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\obj\Release\netcoreapp3.0\PictureGuessing.csproj.CopyComplete
 C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\obj\Release\netcoreapp3.0\PictureGuessing.dll
 C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\obj\Release\netcoreapp3.0\PictureGuessing.pdb
+C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\bin\Release\netcoreapp3.0\Microsoft.OpenApi.dll
+C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\bin\Release\netcoreapp3.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\bin\Release\netcoreapp3.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\bin\Release\netcoreapp3.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\obj\Release\netcoreapp3.0\PictureGuessing.MvcApplicationPartsAssemblyInfo.cs
