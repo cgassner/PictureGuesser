@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -9,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Net.Http.Formatting;
 
 namespace TschechenProjektUI
 {
@@ -24,7 +27,7 @@ namespace TschechenProjektUI
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Game g = new Game();
+            GameObject g = new GameObject();
             g.Show();
             this.Close();
         }

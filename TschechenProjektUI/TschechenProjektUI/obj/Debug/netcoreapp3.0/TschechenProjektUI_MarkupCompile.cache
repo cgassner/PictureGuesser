@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-D:\Schule\4YHIT\TschechenProjekt\TschechenProjektUI\TschechenProjektUI\obj\Debug\netcoreapp3.0\
+D:\repos\PictureGuesser\TschechenProjektUI\TschechenProjektUI\obj\Debug\netcoreapp3.0\
 TschechenProjektUI
 none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_0
-D:\Schule\4YHIT\TschechenProjekt\TschechenProjektUI\TschechenProjektUI\App.xaml
+D:\repos\PictureGuesser\TschechenProjektUI\TschechenProjektUI\App.xaml
 3-1670851100
 
-4-1946665104
-192-1355365667
+7-1657633060
+195-831594454
 Game.xaml;MainWindow.xaml;Options.xaml;
 
 False

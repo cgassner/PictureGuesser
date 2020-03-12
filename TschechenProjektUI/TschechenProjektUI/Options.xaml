@@ -24,6 +24,6 @@
             <ComboBoxItem>IT</ComboBoxItem>
         </ComboBox>
         <Button Height="54" Width="224" FontSize="22" Content="Start" Background="White" Click="Button_Click" Canvas.Left="1166" Canvas.Top="639"/>
-        <Slider x:Name="slider" Canvas.Left="519" Canvas.Top="212" Width="669" Height="70"/>
+        <Slider x:Name="slider1" Canvas.Left="519" Canvas.Top="212" Width="669" Height="70"/>
     </Canvas>
 </Window>

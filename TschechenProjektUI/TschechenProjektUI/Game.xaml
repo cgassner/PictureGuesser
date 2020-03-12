@@ -1,4 +1,4 @@
-﻿<Window x:Class="TschechenProjektUI.Game"
+﻿<Window x:Class="TschechenProjektUI.GameObject"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -11,8 +11,9 @@
         <Label HorizontalContentAlignment="Center" FontSize="30" Content="Time: 0:00" Height="50" Width="332" Foreground="White" Canvas.Left="634" Canvas.Top="10"/>
         <Label HorizontalContentAlignment="Center" FontSize="26" Content="Guess: 00" Height="50" Width="332" Foreground="White" Canvas.Left="634" Canvas.Top="70"/>
         <Button FontSize="26" Height="64" Width="200" Content="Send guess" Background="White" Canvas.Left="1164" Canvas.Top="735" Click="Button_Click"/>
-        <Image x:Name="image" Height="669" Canvas.Left="85" Canvas.Top="130" Width="930" Source="D:/Schule/4YHIT/TschechenProjekt/TschechenProjektUI/TschechenProjektUI/bin/Debug/images/Logo.png"/>
-        <TextBox x:Name="textboxguess" FontSize="26" Text="Type your guess here..." TextWrapping="Wrap" Width="378" Height="109" Canvas.Left="1075" Canvas.Top="587"/>
-        <Canvas x:Name="CoverCanvas" Height="669" Width="912" Canvas.Left="94" Canvas.Top="130"/>
+        <Label FontSize="30" Content="Type your guess here..." Height="50" Width="332" Foreground="White" Canvas.Left="1075" Canvas.Top="577"/>
+        <Image x:Name="image" Height="669" Canvas.Left="85" Canvas.Top="130" Width="930" Source="D:/Schule/4YHIT/TschechenProjekt/TschechenProjektUI/TschechenProjektUI/bin/Debug/images/kaetzchen.jpg"/>
+        <TextBox x:Name="textboxguess" FontSize="26" TextWrapping="Wrap" Width="378" Height="56" Canvas.Left="1075" Canvas.Top="640"/>
+        <Canvas x:Name="CoverCanvas" Height="669" Width="912" Canvas.Left="85" Canvas.Top="130"/>
     </Canvas>
 </Window>
