@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -29,19 +30,25 @@ namespace PictureGuessing
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<PictureGuessingDbContext>(opt =>
-                opt.UseMySql(Configuration.GetConnectionString("MariaDBlocalTest")));
+                opt.UseMySql(Configuration.GetConnectionString("MariaDBLocalTest")));
             services.AddControllers();
 
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
             });
-            
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            using (var scope = app.ApplicationServices.CreateScope())
+            {
+                using (var context = scope.ServiceProvider.GetService<PictureGuessingDbContext>())
+                {
+                    context.Database.Migrate();
+                }
+            }
 
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
@@ -57,8 +64,8 @@ namespace PictureGuessing
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            app.UseHttpsRedirection();
+            
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
 
@@ -68,6 +75,8 @@ namespace PictureGuessing
             {
                 endpoints.MapControllers();
             });
+            
+            
         }
     }
 }

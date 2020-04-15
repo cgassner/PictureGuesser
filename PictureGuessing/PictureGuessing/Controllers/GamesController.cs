@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using PictureGuessing.Models;
 
 namespace PictureGuessing.Controllers
@@ -14,6 +15,12 @@ namespace PictureGuessing.Controllers
     public class GamesController : ControllerBase
     {
         private readonly PictureGuessingDbContext _context;
+        private readonly ILogger _logger;
+
+        public GamesController(ILogger<GamesController> logger)
+        {
+            _logger = logger;
+        }
 
         public GamesController(PictureGuessingDbContext context)
         {
@@ -24,7 +31,7 @@ namespace PictureGuessing.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Game>>> GetGame()
         {
-            return await _context.Game.ToListAsync();
+            return await _context.Game.Include(g => g.Difficulty).ToListAsync();
         }
 
         // GET: api/Games/5
@@ -112,11 +119,28 @@ namespace PictureGuessing.Controllers
                 }
             }
             #endregion
+            
+            _logger.LogInformation("New Game Created");
+
+            Picture pic = null;
+            Guid picid;
+            if (gameStartObject.category != null || gameStartObject.category != "")
+                pic = _context.Pictures.OrderBy(o => Guid.NewGuid()).FirstOrDefault(p => p.Category.ToLower() == gameStartObject.category.ToLower());
+            if (pic != null)
+            {
+                picid = pic.Id;
+                Console.WriteLine("Category found");
+            }
+            else
+            {
+                picid = _context.Pictures.OrderBy(o => Guid.NewGuid()).First().Id;
+                Console.WriteLine("Category not Found");
+            }
 
             Game game = new Game
             {
                 Difficulty = bestMatchDifficulty,
-                pictureID = _context.Pictures.OrderBy(o => Guid.NewGuid()).First().Id
+                pictureID = picid
             };
             _context.Game.Add(game);
             await _context.SaveChangesAsync();

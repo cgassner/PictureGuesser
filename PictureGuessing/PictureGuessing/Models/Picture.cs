@@ -29,6 +29,7 @@ namespace PictureGuessing.Models
         }
 
         public int AnswerLength { get; set; }
+        public string Category { get; set; }
     }
 
 }
