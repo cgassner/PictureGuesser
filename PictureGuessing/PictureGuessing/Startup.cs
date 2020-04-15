@@ -75,8 +75,6 @@ namespace PictureGuessing
             {
                 endpoints.MapControllers();
             });
-            
-            
         }
     }
 }

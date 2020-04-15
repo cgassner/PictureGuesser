@@ -121,7 +121,7 @@ namespace PictureGuessing.Controllers
             #endregion
             
             _logger.LogInformation("New Game Created");
-
+            
             Picture pic = null;
             Guid picid;
             if (gameStartObject.category != null || gameStartObject.category != "")
