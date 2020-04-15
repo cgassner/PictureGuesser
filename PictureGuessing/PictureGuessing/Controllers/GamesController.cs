@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using PictureGuessing.Models;
+using Serilog;
+using Serilog.Core;
+using ILogger = Microsoft.Extensions.Logging.ILogger;
 
 namespace PictureGuessing.Controllers
 {
@@ -15,16 +18,16 @@ namespace PictureGuessing.Controllers
     public class GamesController : ControllerBase
     {
         private readonly PictureGuessingDbContext _context;
-        private readonly ILogger _logger;
+        private readonly Logger _logger;
 
-        public GamesController(ILogger<GamesController> logger)
-        {
-            _logger = logger;
-        }
 
         public GamesController(PictureGuessingDbContext context)
         {
             _context = context;
+
+            _logger = new LoggerConfiguration()
+                .WriteTo.File("logs/log.txt", rollingInterval: RollingInterval.Day)
+                .CreateLogger();
         }
 
         // GET: api/Games
@@ -120,8 +123,7 @@ namespace PictureGuessing.Controllers
             }
             #endregion
             
-            _logger.LogInformation("New Game Created");
-            
+            #region SelectPicture
             Picture pic = null;
             Guid picid;
             if (gameStartObject.category != null || gameStartObject.category != "")
@@ -136,7 +138,8 @@ namespace PictureGuessing.Controllers
                 picid = _context.Pictures.OrderBy(o => Guid.NewGuid()).First().Id;
                 Console.WriteLine("Category not Found");
             }
-
+            #endregion
+            
             Game game = new Game
             {
                 Difficulty = bestMatchDifficulty,
@@ -144,6 +147,9 @@ namespace PictureGuessing.Controllers
             };
             _context.Game.Add(game);
             await _context.SaveChangesAsync();
+
+            _logger.Information($"New Game Created from IP {HttpContext.Connection.RemoteIpAddress}");
+            
             return CreatedAtAction(nameof(GetGame), new { id = game.Id }, game);
         }
         //[HttpPost]
