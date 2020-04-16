@@ -137,5 +137,15 @@ C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\bin\Debug\ne
 C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\bin\Debug\netcoreapp3.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\bin\Debug\netcoreapp3.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\bin\Debug\netcoreapp3.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\bin\Debug\netcoreapp3.0\Serilog.dll
+C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\bin\Debug\netcoreapp3.0\Serilog.Sinks.File.dll
+C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\bin\Debug\netcoreapp3.0\Serilog.Sinks.Console.dll
+C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\bin\Debug\netcoreapp3.0\Serilog.Sinks.Async.dll
+C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\bin\Debug\netcoreapp3.0\Serilog.Settings.Configuration.dll
+C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\bin\Debug\netcoreapp3.0\Serilog.AspNetCore.dll
+C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\bin\Debug\netcoreapp3.0\Serilog.Extensions.Hosting.dll
+C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\bin\Debug\netcoreapp3.0\Serilog.Extensions.Logging.dll
+C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\bin\Debug\netcoreapp3.0\Serilog.Formatting.Compact.dll
+C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\bin\Debug\netcoreapp3.0\Serilog.Sinks.Debug.dll
 C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\obj\Debug\netcoreapp3.0\PictureGuessing.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\chris\repos\PictureGuesser\PictureGuessing\PictureGuessing\obj\Debug\netcoreapp3.0\PictureGuessing.MvcApplicationPartsAssemblyInfo.cache

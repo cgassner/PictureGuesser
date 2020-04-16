@@ -1,0 +1,5 @@
+2020-04-16 01:02:34.269 +02:00 [INF] New Game Created from IP ::1
+2020-04-16 01:07:12.452 +02:00 [INF] New Game Created from IP 127.0.0.1
+2020-04-16 16:39:59.106 +02:00 [INF] New Game Created from IP ::1
+2020-04-16 16:47:58.332 +02:00 [INF] New Game Created from IP ::1, Identity: 
+2020-04-16 16:51:25.704 +02:00 [INF] New Game Created from IP 127.0.0.1, 

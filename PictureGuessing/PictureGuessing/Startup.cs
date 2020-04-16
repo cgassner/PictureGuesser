@@ -12,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.WebEncoders.Testing;
 using Microsoft.OpenApi.Models;
 using PictureGuessing.Models;
 
@@ -29,8 +30,12 @@ namespace PictureGuessing
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            string dbName = "MariaDB";
+            if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Development")
+                dbName = "MariaDBlocaltest";
+
             services.AddDbContext<PictureGuessingDbContext>(opt =>
-                opt.UseMySql(Configuration.GetConnectionString("MariaDBLocalTest")));
+                opt.UseMySql(Configuration.GetConnectionString(dbName)));
             services.AddControllers();
 
             services.AddSwaggerGen(c =>

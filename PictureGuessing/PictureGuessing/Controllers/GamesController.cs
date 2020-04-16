@@ -2,14 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
 using PictureGuessing.Models;
 using Serilog;
 using Serilog.Core;
-using ILogger = Microsoft.Extensions.Logging.ILogger;
 
 namespace PictureGuessing.Controllers
 {
@@ -19,7 +16,6 @@ namespace PictureGuessing.Controllers
     {
         private readonly PictureGuessingDbContext _context;
         private readonly Logger _logger;
-
 
         public GamesController(PictureGuessingDbContext context)
         {
@@ -93,10 +89,8 @@ namespace PictureGuessing.Controllers
                 {
                     return NotFound();
                 }
-                else
-                {
-                    throw;
-                }
+
+                throw;
             }
 
             return NoContent();
@@ -126,17 +120,15 @@ namespace PictureGuessing.Controllers
             #region SelectPicture
             Picture pic = null;
             Guid picid;
-            if (gameStartObject.category != null || gameStartObject.category != "")
+            if (gameStartObject.category != null)
                 pic = _context.Pictures.OrderBy(o => Guid.NewGuid()).FirstOrDefault(p => p.Category.ToLower() == gameStartObject.category.ToLower());
             if (pic != null)
             {
                 picid = pic.Id;
-                Console.WriteLine("Category found");
             }
             else
             {
                 picid = _context.Pictures.OrderBy(o => Guid.NewGuid()).First().Id;
-                Console.WriteLine("Category not Found");
             }
             #endregion
             
@@ -145,13 +137,16 @@ namespace PictureGuessing.Controllers
                 Difficulty = bestMatchDifficulty,
                 pictureID = picid
             };
-            _context.Game.Add(game);
+            await _context.Game.AddAsync(game);
             await _context.SaveChangesAsync();
 
-            _logger.Information($"New Game Created from IP {HttpContext.Connection.RemoteIpAddress}");
+            if (gameStartObject.category == null) gameStartObject.category = "not selected";
+            _logger.Information($"New Game Created with values DifficultyScale: {gameStartObject.difficultyScale}, Category: {gameStartObject.category}");
+            
             
             return CreatedAtAction(nameof(GetGame), new { id = game.Id }, game);
         }
+
         //[HttpPost]
         //public async Task<ActionResult<Game>> PostGame(Game game)
         //{
