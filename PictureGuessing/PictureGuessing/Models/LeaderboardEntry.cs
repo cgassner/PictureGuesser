@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace PictureGuessing.Models
 {
@@ -12,8 +8,8 @@ namespace PictureGuessing.Models
         [Key]
         public Guid Id { get; set; } = new Guid();
         public string Name { get; set; }
-        public Guid DifficultyID { get; set; }
+        public float DifficultyScale { get; set; }
         public string Category { get; set; }
-        public float Time { get; set; }
+        public double TimeInSeconds { get; set; }
     }
 }

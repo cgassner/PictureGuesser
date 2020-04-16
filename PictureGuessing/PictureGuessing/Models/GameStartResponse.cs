@@ -1,16 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace PictureGuessing.Models
 {
-    public class Game
+    public class GameStartResponse
     {
-        [Key]
-        public Guid Id { get; set; } = new Guid();
+        public Guid Id { get; set; }
         public Difficulty Difficulty { get; set; }
         public Guid pictureID { get; set; }
         public bool isFinished { get; set; } = false;
-        public DateTime StartTime { get; set; } = DateTime.Now;
-        public DateTime Endtime { get; set; }
     }
 }

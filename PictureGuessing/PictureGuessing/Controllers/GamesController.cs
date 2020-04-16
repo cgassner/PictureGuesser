@@ -61,6 +61,7 @@ namespace PictureGuessing.Controllers
             if (guess.Trim().ToLower() == _context.Pictures.FindAsync(game.pictureID).Result.Answer.ToLower())
             {
                 game.isFinished = true;
+                game.Endtime = DateTime.Now;
                 _context.Game.Update(game);
                 await _context.SaveChangesAsync();
             }
@@ -102,7 +103,7 @@ namespace PictureGuessing.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
-        public async Task<ActionResult<Game>> PostGame(GameStartObject gameStartObject)
+        public async Task<ActionResult<GameStartResponse>> PostGame(GameStartObject gameStartObject)
         {
             #region Get Difficulty with best matching difficultScale
             List<Difficulty> difficulties = _context.Difficulties.ToListAsync().Result;
@@ -140,8 +141,8 @@ namespace PictureGuessing.Controllers
             if (gameStartObject.category == null) gameStartObject.category = "not selected";
             _logger.Information($"New Game, Selected diff and cat: {gameStartObject.difficultyScale}, {gameStartObject.category}; Real diff and cat {game.Difficulty.DifficultyScale}, {pic.Category}");
             
-            
-            return CreatedAtAction(nameof(GetGame), new { id = game.Id }, game);
+            var response = new GameStartResponse{Difficulty = game.Difficulty, Id = game.Id, pictureID = game.pictureID};
+            return CreatedAtAction(nameof(GetGame), new { id = game.Id }, response);
         }
 
         //[HttpPost]

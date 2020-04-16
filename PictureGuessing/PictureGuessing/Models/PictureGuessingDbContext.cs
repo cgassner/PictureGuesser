@@ -15,5 +15,6 @@ namespace PictureGuessing.Models
         public DbSet<Game> Game { get; set; }
         public DbSet<Difficulty> Difficulties { get; set; }
         public DbSet<Picture> Pictures { get; set; }
+        public DbSet<LeaderboardEntry> LeaderboardEntries { get; set; }
     }
 }
