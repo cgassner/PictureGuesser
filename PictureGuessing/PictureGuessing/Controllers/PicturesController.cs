@@ -29,16 +29,16 @@ namespace PictureGuessing.Controllers
 
         // GET: api/Pictures/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Picture>> GetPicture(Guid id)
+        public async Task<ActionResult<PictureResponse>> GetPicture(Guid id)
         {
-            var picture = await _context.Pictures.FindAsync(id);
+            var pic = await _context.Pictures.FindAsync(id);
 
-            if (picture == null)
+            if (pic == null)
             {
                 return NotFound();
             }
-            picture.Answer = "";
-            return picture;
+            var response = new PictureResponse{AnswerLength = pic.AnswerLength, Category = pic.Category, Id = pic.Id, URL = pic.URL};
+            return Ok(response);
         }
 
         // PUT: api/Pictures/5

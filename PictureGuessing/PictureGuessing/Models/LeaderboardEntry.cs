@@ -13,6 +13,7 @@ namespace PictureGuessing.Models
         public Guid Id { get; set; } = new Guid();
         public string Name { get; set; }
         public Guid DifficultyID { get; set; }
-        //Category
+        public string Category { get; set; }
+        public float Time { get; set; }
     }
 }
