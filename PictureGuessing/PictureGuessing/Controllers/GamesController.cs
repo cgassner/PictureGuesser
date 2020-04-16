@@ -48,7 +48,7 @@ namespace PictureGuessing.Controllers
 
         // GET: api/Games/5
         [HttpGet("{id}/{guess}")]
-        public async Task<ActionResult<Game>> GetGame(Guid id, string guess)
+        public async Task<ActionResult<bool>> GetGame(Guid id, string guess)
         {
             var game = await _context.Game.FindAsync(id);
 
@@ -56,14 +56,16 @@ namespace PictureGuessing.Controllers
                 return NotFound();
 
             if (game.isFinished)
-                return game;
+                return Problem("Game already finished");
 
             if (guess.Trim().ToLower() == _context.Pictures.FindAsync(game.pictureID).Result.Answer.ToLower())
+            {
                 game.isFinished = true;
+                _context.Game.Update(game);
+                await _context.SaveChangesAsync();
+            }
 
-            _context.Game.Update(game);
-            await _context.SaveChangesAsync();
-            return game;
+            return Ok(game.isFinished);
         }
 
         // PUT: api/Games/5
@@ -117,19 +119,14 @@ namespace PictureGuessing.Controllers
             }
             #endregion
             
-            #region SelectPicture
+            #region Select Picture
             Picture pic = null;
             Guid picid;
             if (gameStartObject.category != null)
                 pic = _context.Pictures.OrderBy(o => Guid.NewGuid()).FirstOrDefault(p => p.Category.ToLower() == gameStartObject.category.ToLower());
-            if (pic != null)
-            {
-                picid = pic.Id;
-            }
-            else
-            {
-                picid = _context.Pictures.OrderBy(o => Guid.NewGuid()).First().Id;
-            }
+            if (pic == null)
+                pic = _context.Pictures.OrderBy(o => Guid.NewGuid()).First();
+            picid = pic.Id;
             #endregion
             
             Game game = new Game
@@ -141,7 +138,7 @@ namespace PictureGuessing.Controllers
             await _context.SaveChangesAsync();
 
             if (gameStartObject.category == null) gameStartObject.category = "not selected";
-            _logger.Information($"New Game Created with values DifficultyScale: {gameStartObject.difficultyScale}, Category: {gameStartObject.category}");
+            _logger.Information($"New Game, Selected diff and cat: {gameStartObject.difficultyScale}, {gameStartObject.category}; Real diff and cat {game.Difficulty.DifficultyScale}, {pic.Category}");
             
             
             return CreatedAtAction(nameof(GetGame), new { id = game.Id }, game);
