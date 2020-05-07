@@ -1,0 +1,1 @@
+2020-05-07 20:39:11.460 +02:00 [INF] New Game, Selected diff and cat: 1, not selected; Real diff and cat 5, 

@@ -12,5 +12,6 @@ namespace PictureGuessing.Models
         public bool isFinished { get; set; } = false;
         public DateTime StartTime { get; set; } = DateTime.Now;
         public DateTime Endtime { get; set; }
+        public string Category { get; set; }
     }
 }

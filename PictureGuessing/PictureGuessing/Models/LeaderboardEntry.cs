@@ -7,6 +7,7 @@ namespace PictureGuessing.Models
     {
         [Key]
         public Guid Id { get; set; } = new Guid();
+        public Guid GameId { get; set; }
         public string Name { get; set; }
         public float DifficultyScale { get; set; }
         public string Category { get; set; }

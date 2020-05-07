@@ -5201,23 +5201,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Schule\\.nuget\\packages\\": {},
+    "C:\\Users\\chris\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\repos\\PictureGuesser\\TschechenProjektUI\\TschechenProjektUI\\TschechenProjektUI.csproj",
+      "projectUniqueName": "C:\\Users\\chris\\repos\\PictureGuesser\\TschechenProjektUI\\TschechenProjektUI\\TschechenProjektUI.csproj",
       "projectName": "TschechenProjektUI",
-      "projectPath": "D:\\repos\\PictureGuesser\\TschechenProjektUI\\TschechenProjektUI\\TschechenProjektUI.csproj",
-      "packagesPath": "C:\\Users\\Schule\\.nuget\\packages\\",
-      "outputPath": "D:\\repos\\PictureGuesser\\TschechenProjektUI\\TschechenProjektUI\\obj\\",
+      "projectPath": "C:\\Users\\chris\\repos\\PictureGuesser\\TschechenProjektUI\\TschechenProjektUI\\TschechenProjektUI.csproj",
+      "packagesPath": "C:\\Users\\chris\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\chris\\repos\\PictureGuesser\\TschechenProjektUI\\TschechenProjektUI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Schule\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\chris\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5263,7 +5263,7 @@
           },
           {
             "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[3.0.1, 3.0.1]"
+            "version": "[3.0.2, 3.0.2]"
           },
           {
             "name": "Microsoft.NETCore.App.Ref",
@@ -5282,7 +5282,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

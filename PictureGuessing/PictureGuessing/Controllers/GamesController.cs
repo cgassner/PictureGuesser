@@ -37,7 +37,7 @@ namespace PictureGuessing.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Game>> GetGame(Guid id)
         {
-            var game = await _context.Game.Include(g => g.Difficulty).FirstOrDefaultAsync(i => i.Id == id);
+            var game = await _context.Game.Include(g => g.Difficulty).FirstOrDefaultAsync(g => g.Id == id);
 
             if (game == null)
             {
@@ -68,7 +68,7 @@ namespace PictureGuessing.Controllers
 
             return Ok(game.isFinished);
         }
-
+        
         // PUT: api/Games/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
@@ -122,39 +122,40 @@ namespace PictureGuessing.Controllers
             
             #region Select Picture
             Picture pic = null;
-            Guid picid;
+            string category;
+
             if (gameStartObject.category != null)
-                pic = _context.Pictures.OrderBy(o => Guid.NewGuid()).FirstOrDefault(p => p.Category.ToLower() == gameStartObject.category.ToLower());
+            {
+                pic = _context.Pictures.OrderBy(o => Guid.NewGuid()).FirstOrDefaultAsync(p => p.Category.ToLower() == gameStartObject.category.ToLower()).Result;
+            }
             if (pic == null)
-                pic = _context.Pictures.OrderBy(o => Guid.NewGuid()).First();
-            picid = pic.Id;
+            {
+                pic = _context.Pictures.OrderBy(o => Guid.NewGuid()).FirstAsync().Result;
+                category = "Default";
+            }
+            else category = pic.Category;
+
+            Guid picid = pic.Id;
             #endregion
             
             Game game = new Game
             {
                 Difficulty = bestMatchDifficulty,
-                pictureID = picid
+                pictureID = picid,
+                Category = category
             };
             await _context.Game.AddAsync(game);
             await _context.SaveChangesAsync();
 
-            if (gameStartObject.category == null) gameStartObject.category = "not selected";
+            if (gameStartObject.category == null) 
+                gameStartObject.category = "not selected";
+
             _logger.Information($"New Game, Selected diff and cat: {gameStartObject.difficultyScale}, {gameStartObject.category}; Real diff and cat {game.Difficulty.DifficultyScale}, {pic.Category}");
             
             var response = new GameStartResponse{Difficulty = game.Difficulty, Id = game.Id, pictureID = game.pictureID};
             return CreatedAtAction(nameof(GetGame), new { id = game.Id }, response);
         }
 
-        //[HttpPost]
-        //public async Task<ActionResult<Game>> PostGame(Game game)
-        //{
-        //    _context.Game.Add(game);
-        //    await _context.SaveChangesAsync();
-
-        //    return CreatedAtAction(nameof(GetGame), new { id = game.Id }, game);
-        //}
-
-        // DELETE: api/Games/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<Game>> DeleteGame(Guid id)
         {

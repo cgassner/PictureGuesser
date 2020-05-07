@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PictureGuessing.Models;
 
 namespace PictureGuessing.Migrations
 {
     [DbContext(typeof(PictureGuessingDbContext))]
-    partial class PictureGuessingDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200417092005_More Leaderboard Changes")]
+    partial class MoreLeaderboardChanges
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -41,9 +43,6 @@ namespace PictureGuessing.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)");
-
-                    b.Property<string>("Category")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<float?>("DifficultyScale")
                         .HasColumnType("float");
@@ -78,9 +77,6 @@ namespace PictureGuessing.Migrations
 
                     b.Property<float>("DifficultyScale")
                         .HasColumnType("float");
-
-                    b.Property<Guid>("GameId")
-                        .HasColumnType("char(36)");
 
                     b.Property<string>("Name")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");

@@ -57,15 +57,14 @@ namespace TschechenProjektUI
             // Call asynchronous network methods in a try/catch block to handle exceptions.
             try
             {
-                var response = await client.PostAsJsonAsync("http://77.244.251.110:81/api/games", new GameStartObject
+                var response = client.PostAsJsonAsync("http://77.244.251.110:81/api/games", new GameStartObject
                 {
                     difficultyScale = difficultyScale,
                     category = category
-                });
+                }).Result;
                 var answer = await response.Content.ReadAsStringAsync();
                 JObject json = JObject.Parse(answer);
                 Difficulty difficulty = new Difficulty();
-
                 foreach (var item in json.Children())   // macht ein richtiges Game...
                 {
                     switch (item.Path)
